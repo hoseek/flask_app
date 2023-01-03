@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from random import randint
-from sys import maxsize
 
 app = Flask(__name__, template_folder='templates')
 
@@ -20,10 +19,10 @@ def get_sum_number():
     random_list = []
 
     for i in range(1000):
-        number = randint(0, maxsize)
+        number = randint(0, 100)
         random_list.append(number)
     return [sum(random_list)]
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0', port=5000)
